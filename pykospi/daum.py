@@ -4,7 +4,7 @@ from datetime import datetime
 
 def get_daily_data(name, start="2010-01-01", end=None, modify=1):
     """
-    Get dailay open/high/low/close/volume data from Data Finanace
+    Get daily open/high/low/close/volume data from Daum Finance (finance.daum.net)
 
     Parameters
     ----------
@@ -25,7 +25,7 @@ def get_daily_data(name, start="2010-01-01", end=None, modify=1):
         end = datetime.now()
 
     frames = []
-    page= 1
+    page = 1
 
     while True:
         url_form = "http://finance.daum.net/item/quote_yyyymmdd_sub.daum?page=%d&code=%s&modify=%d"
@@ -61,5 +61,6 @@ def get_daily_data(name, start="2010-01-01", end=None, modify=1):
     return ret
 
 
-df = get_daily_data("000020", start="2017-12-25", end="2018-01-13")
-print(df)
+if __name__ == "__main__":
+    df = get_daily_data("000020", start="2017-12-25", end="2018-01-13")
+    print(df)
